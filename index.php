@@ -1,6 +1,8 @@
 <?php
-// Iniciar sesión
-echo "🚀 Railway funciona en el puerto: " . getenv("PORT");
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+echo "🚀 Apache + PHP en Railway funciona!";
 
 
 /*// Verificar si se ha proporcionado un parámetro de ID en la URL
