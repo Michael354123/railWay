@@ -1,16 +1,27 @@
 <?php
-// Datos de conexión a la base de datos desde variables de entorno
-$servername = getenv("DB_HOST");
-$username   = getenv("MYSQLUSER");        // Railway suele dar MYSQLUSER
-$password   = getenv("MYSQLPASSWORD");    // Railway da MYSQLPASSWORD
-$dbname     = getenv("MYSQL_DATABASE");   // Railway da MYSQL_DATABASE
-$port       = getenv("MYSQLPORT");        // Railway da MYSQLPORT
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-// Crear una conexión a la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+echo "🚀 Apache + PHP en Railway funciona!<br>";
 
-// Verificar la conexión
+// Comprobar variables de entorno de Railway
+echo "PORT: " . getenv("PORT") . "<br>";
+echo "DB_HOST: " . getenv("DB_HOST") . "<br>";
+echo "DB_USER: " . getenv("DB_USER") . "<br>";
+echo "DB_NAME: " . getenv("DB_NAME") . "<br>";
+echo "DB_PORT: " . getenv("DB_PORT") . "<br>";
+
+// Intentar conexión MySQL (opcional)
+$conn = new mysqli(
+    getenv("DB_HOST"),
+    getenv("DB_USER"),
+    getenv("DB_PASS"),
+    getenv("DB_NAME"),
+    getenv("DB_PORT")
+);
+
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("❌ Error MySQL: " . $conn->connect_error);
 }
-?>
+
+echo "✅ Conexión MySQL exitosa";
