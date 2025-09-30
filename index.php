@@ -1,8 +1,9 @@
 <?php
 // Iniciar sesión
-session_start();
+echo "🚀 Railway funciona en el puerto: " . getenv("PORT");
 
-// Verificar si se ha proporcionado un parámetro de ID en la URL
+
+/*// Verificar si se ha proporcionado un parámetro de ID en la URL
 if(isset($_GET['id']) && !empty($_GET['id'])) {
     // Obtener el ID de la URL
     $id = $_GET['id'];
@@ -33,7 +34,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     // No se proporcionó un ID en la URL, redirigir al usuario a la página anterior
     echo '<script>window.history.go(-1);</script>';
     exit();
-}
+}*/
 ?>
 
 <!DOCTYPE html>
